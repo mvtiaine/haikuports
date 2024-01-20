@@ -28,6 +28,7 @@ BUILD_REQUIRES="
 
 BUILD_PREREQUIRES="
 	cmd:awk
+	cmd:diff
 	cmd:find
 	cmd:gcc
 	cmd:make
