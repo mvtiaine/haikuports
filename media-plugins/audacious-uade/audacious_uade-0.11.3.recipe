@@ -37,7 +37,8 @@ BUILD_PREREQUIRES="
 
 BUILD()
 {
-	runConfigure ./configure
+	runConfigure ./configure \
+		--with-audacious-plugindir=$libDir/audacious
 	make $jobArgs
 }
 
