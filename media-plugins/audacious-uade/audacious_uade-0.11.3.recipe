@@ -1,0 +1,48 @@
+SUMMARY="UADE plugin for Audacious media player"
+DESCRIPTION="UADE plugin for Audacious media player"
+HOMEPAGE="https://github.com/mvtiaine/audacious-uade"
+COPYRIGHT="Matti Tiainen <mvtiaine@cc.hut.fi>"
+LICENSE="GPL-2.0-or-later"
+REVISION="0"
+SOURCE_URI="https://github.com/mvtiaine/audacious-uade/releases/download/$portVersion/audacious-uade-$portVersion.tar.bz2"
+CHECKSUM_SHA256="7a9adc203d2113eb88fef9cb1aa463076b90a314de944690330d779b588bbc7f"
+
+ARCHITECTURES="all"
+
+PROVIDES="
+	audacious_uade = $portVersion
+	"
+
+REQUIRES="
+	haiku
+	lib:libaudcore
+	"
+
+SUPPLEMENTS="audacious"
+
+BUILD_REQUIRES="
+	haiku_devel
+	"
+
+BUILD_PREREQUIRES="
+	cmd:gcc
+	cmd:make
+	cmd:pkg_config
+	"
+
+BUILD()
+{
+	runConfigure ./configure
+	make $jobArgs
+}
+
+TEST()
+{
+	make $jobArgs check
+}
+
+INSTALL()
+{
+	make install
+	strip $libDir/audacious/Input/uade.so
+}
