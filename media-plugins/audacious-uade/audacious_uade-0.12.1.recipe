@@ -5,7 +5,7 @@ COPYRIGHT="Matti Tiainen"
 LICENSE="GNU GPL v2"
 REVISION="1"
 SOURCE_URI="https://github.com/mvtiaine/audacious-uade/releases/download/$portVersion/audacious-uade-$portVersion.tar.bz2"
-CHECKSUM_SHA256="3f1e15adbc574307d6d706a27a39d19037d7720a2d632ac1f8c5159f40787da5"
+CHECKSUM_SHA256="0292fba98ffad83edbb7d500d11615d924c42a94aaa220aad0f4f6b704369127"
 SOURCE_DIR="audacious-uade-$portVersion"
 
 ARCHITECTURES="all"
