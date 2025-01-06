@@ -5,7 +5,7 @@ COPYRIGHT="Matti Tiainen"
 LICENSE="GNU GPL v2"
 REVISION="1"
 SOURCE_URI="https://github.com/mvtiaine/audacious-uade/releases/download/$portVersion/audacious-uade-$portVersion.tar.bz2"
-CHECKSUM_SHA256="9d49a041551696511b61db0b1c31e0fc379633be5696de26b63876d94e31a932"
+CHECKSUM_SHA256="3d1b5f5dc42e04f9cc8c355b4783644507dcc36e13ac7e2662cad3b84432ff91"
 SOURCE_DIR="audacious-uade-$portVersion"
 
 ARCHITECTURES="all"
@@ -39,6 +39,7 @@ BUILD_PREREQUIRES="
 BUILD()
 {
 	runConfigure ./configure \
+		--enable-plugin-audacious=yes --with-static-stdlibs=no \
 		--with-audacious-plugindir=$libDir/audacious
 	make $jobArgs
 }
