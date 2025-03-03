@@ -1,11 +1,11 @@
-SUMMARY="UADE plugin for Audacious media player"
-DESCRIPTION="UADE plugin for Audacious media player."
+SUMMARY="UADE plugin for Audacious and DeaDBeeF"
+DESCRIPTION="Audacious (https://audacious-media-player.org/) and DeaDBeeF (https://deadbeef.sourceforge.io/) input plugin for UADE (https://zakalwe.fi/uade/) and other retro music replays"
 HOMEPAGE="https://github.com/mvtiaine/audacious-uade"
 COPYRIGHT="Matti Tiainen"
 LICENSE="GNU GPL v2"
 REVISION="1"
 SOURCE_URI="https://github.com/mvtiaine/audacious-uade/releases/download/$portVersion/audacious-uade-$portVersion.tar.bz2"
-CHECKSUM_SHA256="3d1b5f5dc42e04f9cc8c355b4783644507dcc36e13ac7e2662cad3b84432ff91"
+CHECKSUM_SHA256="d656a44ded34ba63c937196b9207e22b3d4d727fbd7839fe1885c2061a32db0d"
 SOURCE_DIR="audacious-uade-$portVersion"
 
 ARCHITECTURES="all"
@@ -17,6 +17,8 @@ PROVIDES="
 REQUIRES="
 	haiku
 	lib:libaudcore
+	lib:libopenmpt
+	lib:libxmp
 	"
 
 SUPPLEMENTS="audacious"
@@ -24,6 +26,8 @@ SUPPLEMENTS="audacious"
 BUILD_REQUIRES="
 	haiku_devel
 	audacious_devel
+	libopenmpt_devel
+	libxmp_devel
 	"
 
 BUILD_PREREQUIRES="
@@ -39,8 +43,10 @@ BUILD_PREREQUIRES="
 BUILD()
 {
 	runConfigure ./configure \
-		--enable-plugin-audacious=yes --with-static-stdlibs=no \
-		--with-audacious-plugindir=$libDir/audacious
+		--enable-players=all \
+		--enable-plugin-audacious=yes \
+		--with-audacious-plugindir=$libDir/audacious \
+		--with-static-stdlibs=no
 	make $jobArgs
 }
 
