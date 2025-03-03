@@ -28,6 +28,7 @@ BUILD_REQUIRES="
 	audacious_devel
 	libopenmpt_devel
 	libxmp_devel
+	zlib_devel
 	"
 
 BUILD_PREREQUIRES="
