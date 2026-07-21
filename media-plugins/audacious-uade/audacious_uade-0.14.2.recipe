@@ -5,7 +5,7 @@ COPYRIGHT="Matti Tiainen"
 LICENSE="GNU GPL v2"
 REVISION="1"
 SOURCE_URI="https://github.com/mvtiaine/audacious-uade/releases/download/$portVersion/audacious-uade-$portVersion.tar.bz2"
-CHECKSUM_SHA256="b4fda083636edd623e949ec6cdb4435aef298c743a5423ae348537938188532e"
+CHECKSUM_SHA256="881d4ac8088d0e8c8ef060d85d829d2585ceb9237fd09d022b03818b40216d9b"
 SOURCE_DIR="audacious-uade-$portVersion"
 
 ARCHITECTURES="all"
@@ -41,6 +41,7 @@ BUILD_PREREQUIRES="
 	cmd:pkg_config
 	"
 
+# TODO fix /system/share policy warning
 BUILD()
 {
 	runConfigure ./configure \
